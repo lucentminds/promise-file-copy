@@ -1,0 +1,21 @@
+{
+	"name": "promise-copy-file",
+	"date": "01-05-2017",
+	"description": "NodeJs module that copies files or directories to one or more locations.",
+	"main": "promise-copy-file.js",
+	"author": {
+		"name": "Scott Johnson"
+	},
+	"license": "MIT",
+	"version": "0.0.1",
+	"engine": "node 4.0.0",
+	"repository":{
+		"type": "git",
+		"url": "https://github.com/lucentminds/promise-copy-file.git"
+	},
+	"dependencies": {
+    	"promise-resolve-path": "git+https://github.com/lucentminds/promise-resolve-path.git",
+    	"fs-extra": "^1.0.0",
+		"q": ">=1.4.1"
+	}
+}
