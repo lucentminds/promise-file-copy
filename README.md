@@ -14,7 +14,7 @@ copy( '/path/to/file.txt', '/path/to/new/file.txt' )
 });
 ```
 
-Or this...
+Copy one file to one directory.
 
 ```js
 copy( '/path/to/file.txt', '/path/to/new/dir' )
@@ -25,7 +25,7 @@ copy( '/path/to/file.txt', '/path/to/new/dir' )
 });
 ```
 
-Or this...
+Copy multiple files to the same directory.
 
 ```js
 copy( ['/path/to/file1.txt', '/path/to/file2.txt'], '/path/to/new/dir' )
@@ -36,10 +36,10 @@ copy( ['/path/to/file1.txt', '/path/to/file2.txt'], '/path/to/new/dir' )
 });
 ```
 
-Or this...
+Copy mutliple files to multiple directories.
 
 ```js
-copy( ['/path/to/file1.txt', '/path/to/file2.txt'], ['/path/to/new/dir1','/path/to/new/dir1'] )
+copy( ['/path/to/file1.txt', '/path/to/file2.txt'], ['/path/to/new/dir1','/path/to/new/dir2'] )
 .then(function( aResult ){
 
     console.log( 'Success!' );
