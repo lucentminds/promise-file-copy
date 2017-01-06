@@ -124,7 +124,7 @@ var copyOneFile = function( cPathSrc, cPathDest ) {
             throw new Error( err );
         } )
     .then(function(){
-        fse.copy( cPathSrc, cPathDest, function( err ) {
+        fse.copy( cPathSrc, cPathDest, {}, function( err ) {
             if (err) {
                 return deferred.reject( err );
             }
