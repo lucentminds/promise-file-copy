@@ -15,7 +15,7 @@ var path = require( 'path' );
 var Q = require( 'q' );
 var fse = require( 'fs-extra' );
 var resolvePath = require( 'promise-resolve-path' );
-var copy = module.exports = function( aSrc, aDest ){
+var copy = module.exports = function( aSrc, aDest ){ // jshint ignore:line
     var deferred = Q.defer();
     var cSrcType = typeof aSrc;
     var cDestType = typeof aDest;

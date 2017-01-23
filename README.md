@@ -1,10 +1,10 @@
-# promise-copy-file
+# promise-file-copy
 NodeJs module that copies files or directories to one or more locations.
 
 ### Useage:
 
 ```js
-var copy = require( 'promise-copy-file' );
+var copy = require( 'promise-file-copy' );
 
 copy( '/path/to/file.txt', '/path/to/new/file.txt' )
 .then(function( oResult ){
@@ -18,7 +18,7 @@ copy( '/path/to/file.txt', '/path/to/new/file.txt' )
 Install by npm.
 
 ```shell
-npm install git+https://github.com/lucentminds/promise-copy-file.git
+npm install git+https://github.com/lucentminds/promise-file-copy.git
 ```
 
 ## Examples
@@ -27,6 +27,17 @@ Copy one file to one directory.
 
 ```js
 copy( '/path/to/file.txt', '/path/to/new/dir' )
+.then(function( oResult ){
+
+    console.log( 'Success!' );
+
+});
+```
+
+Copy one directory to another directory.
+
+```js
+copy( '/path/to/old/dir', '/path/to/new/dir' )
 .then(function( oResult ){
 
     console.log( 'Success!' );
