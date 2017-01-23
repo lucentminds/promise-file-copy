@@ -13,6 +13,15 @@ copy( '/path/to/file.txt', '/path/to/new/file.txt' )
 
 });
 ```
+## Installation
+
+Install by npm.
+
+```shell
+npm install git+https://github.com/lucentminds/promise-copy-file.git
+```
+
+## Examples
 
 Copy one file to one directory.
 
