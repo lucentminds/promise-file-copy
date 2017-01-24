@@ -1,7 +1,7 @@
 # promise-file-copy
 NodeJs module that copies files or directories to one or more locations.
 
-```
+
 ## Installation
 
 Install by npm.
@@ -21,6 +21,7 @@ copy( '/path/to/file.txt', '/path/to/new/file.txt' )
     console.log( 'Success!' );
 
 });
+```
 
 ## Examples
 
