@@ -1,6 +1,15 @@
 # promise-file-copy
 NodeJs module that copies files or directories to one or more locations.
 
+```
+## Installation
+
+Install by npm.
+
+```shell
+npm install git+https://github.com/lucentminds/promise-file-copy.git
+```
+
 ### Useage:
 
 ```js
@@ -12,14 +21,6 @@ copy( '/path/to/file.txt', '/path/to/new/file.txt' )
     console.log( 'Success!' );
 
 });
-```
-## Installation
-
-Install by npm.
-
-```shell
-npm install git+https://github.com/lucentminds/promise-file-copy.git
-```
 
 ## Examples
 
