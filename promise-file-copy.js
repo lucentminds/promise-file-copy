@@ -12,11 +12,11 @@
 
 var fs = require( 'fs' );
 var path = require( 'path' );
-var Q = require( 'q' );
 var fse = require( 'fs-extra' );
 var resolvePath = require( 'promise-resolve-path' );
-var copy = module.exports = function( aSrc, aDest ){ // jshint ignore:line
-    var deferred = Q.defer();
+
+function copy( aSrc, aDest ){ // jshint ignore:line
+    var deferred = deferred();
     var cSrcType = typeof aSrc;
     var cDestType = typeof aDest;
     var aSources;
@@ -95,8 +95,8 @@ var copy = module.exports = function( aSrc, aDest ){ // jshint ignore:line
     return deferred.promise;
 };// /copy()
 
-var copyOneFile = function( cPathSrc, cPathDest ) {
-    var deferred = Q.defer();
+function copyOneFile( cPathSrc, cPathDest ) {
+    var deferred = deferred();
     
     // Either wait for all paths to be evaluated or reject one.
     Q.all( [
@@ -144,8 +144,8 @@ var copyOneFile = function( cPathSrc, cPathDest ) {
     return deferred.promise;
 };// /copyOneFile()
 
-var determinePathType = function( cPath ) {
-    var deferred = Q.defer();
+function determinePathType( cPath ) {
+    var deferred = deferred();
 
     fs.stat( cPath, function ( err, stats ) {
         if ( err ) {
@@ -174,3 +174,20 @@ var determinePathType = function( cPath ) {
 
     return deferred.promise;
 };// /determinePathType()
+
+function deferred(){
+    let resolve, reject;
+    const o_promise = new Promise((res, rej) => {
+        resolve = res;
+        reject = rej;
+    });
+    const o_deferred = {
+        promise: o_promise,
+        resolve: resolve,
+        reject: reject
+    };
+
+    return o_deferred;
+}// /deferred()
+
+module.exports = copy;
