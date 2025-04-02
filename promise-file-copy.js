@@ -16,7 +16,7 @@ var fse = require( 'fs-extra' );
 var resolvePath = require( 'promise-resolve-path' );
 
 function copy( aSrc, aDest ){ // jshint ignore:line
-    var deferred = deferred();
+    var deferred = defer();
     var cSrcType = typeof aSrc;
     var cDestType = typeof aDest;
     var aSources;
@@ -96,7 +96,7 @@ function copy( aSrc, aDest ){ // jshint ignore:line
 };// /copy()
 
 function copyOneFile( cPathSrc, cPathDest ) {
-    var deferred = deferred();
+    var deferred = defer();
     
     // Either wait for all paths to be evaluated or reject one.
     Q.all( [
@@ -145,7 +145,7 @@ function copyOneFile( cPathSrc, cPathDest ) {
 };// /copyOneFile()
 
 function determinePathType( cPath ) {
-    var deferred = deferred();
+    var deferred = defer();
 
     fs.stat( cPath, function ( err, stats ) {
         if ( err ) {
@@ -175,7 +175,7 @@ function determinePathType( cPath ) {
     return deferred.promise;
 };// /determinePathType()
 
-function deferred(){
+function defer(){
     let resolve, reject;
     const o_promise = new Promise((res, rej) => {
         resolve = res;
@@ -188,6 +188,6 @@ function deferred(){
     };
 
     return o_deferred;
-}// /deferred()
+}// /defer()
 
 module.exports = copy;
