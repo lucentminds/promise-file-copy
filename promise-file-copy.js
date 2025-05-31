@@ -77,7 +77,7 @@ function copy( aSrc, aDest ){ // jshint ignore:line
         }// /for()
         
         // Either wait for all paths to be copied or reject one.
-       return Q.all( aPromises );
+       return Promise.all( aPromises );
        
     })
     .then(function( aCopied ){
@@ -88,9 +88,9 @@ function copy( aSrc, aDest ){ // jshint ignore:line
             deferred.resolve( aCopied );
         }
     })
-    .fail(function( err ){
+    .catch(function( err ){
        deferred.reject( err );
-    }).done();
+    });
 
     return deferred.promise;
 };// /copy()
@@ -99,7 +99,7 @@ function copyOneFile( cPathSrc, cPathDest ) {
     var deferred = defer();
     
     // Either wait for all paths to be evaluated or reject one.
-    Q.all( [
+    Promise.all( [
         determinePathType( cPathSrc ),
         determinePathType( cPathDest )
     ] ).then(
@@ -137,9 +137,9 @@ function copyOneFile( cPathSrc, cPathDest ) {
         });
 
     })
-    .fail(function( err ){
+    .catch(function( err ){
         deferred.reject( err );
-    }).done();
+    });
 
     return deferred.promise;
 };// /copyOneFile()
